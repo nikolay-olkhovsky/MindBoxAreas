@@ -1,11 +1,19 @@
 import math
 
-def circleArea(r):
+def circle(*args):
+    if len(args) != 1:
+        raise ValueError("Wrong number of parameters for circle ({0})".format(len(args)))
+    r = args[0]
     if r < 0. : 
         raise ValueError("Radius r cannot be < 0. (current value {0})".format(r))
     return math.pi * r ** 2
 
-def triangleArea(a, b, c):
+def triangle(*args):
+    if len(args) != 3:
+        raise ValueError("Wrong number of parameters for triangle ({0})".format(len(args)))
+    a = args[0]
+    b = args[1]
+    c = args[2]
     if a <= 0 or b <= 0 or c <= 0:
         raise ValueError("A triangle side cannot be <= 0. (current values a={0}, b={1}, c={2})".format(a, b, c))
     if a >= b+c or b >= a+c or c >= a+b:
